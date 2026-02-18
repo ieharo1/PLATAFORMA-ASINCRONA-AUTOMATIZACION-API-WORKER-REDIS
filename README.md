@@ -1,29 +1,42 @@
-# Automatizador-de-canciones
+# 🎵 Automatizador de Canciones
 
-Proyecto Python para automatizar la reproducción de canciones.
+Proyecto Python para automatizar la reproducción de canciones desarrollado por **Isaac Esteban Haro Torres**.
 
-## Descripción
+---
+
+## 📝 Descripción
 
 Bot Python que automatiza la reproducción y gestión de canciones en plataformas de streaming.
 
-## Características
+---
+
+## ✨ Características
 
 - Reproducción automática de listas
 - Gestión de playlists
 - Control por voz/comandos
 
-## Stack Tecnológico
+---
+
+## 🛠️ Stack Tecnológico
 
 - Python
 - APIs de streaming
 - Selenium
 
-## Autor
+---
 
-🧑‍💻 **Isaac Haro**
+## 👨‍💻 Desarrollado por Isaac Esteban Haro Torres
 
-Ingeniero en Sistemas · Full Stack · Automatización · Data
+**Ingeniero en Sistemas · Full Stack · Automatización · Data**
 
-## Licencia
+- 📧 Email: zackharo1@gmail.com
+- 📱 WhatsApp: 098805517
+- 💻 GitHub: https://github.com/ieharo1
+- 🌐 Portafolio: https://ieharo1.github.io/portafolio-isaac.haro/
 
-MIT — contribuciones bienvenidas 🚀
+---
+
+## 📄 Licencia
+
+© 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.
