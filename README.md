@@ -1,30 +1,71 @@
-﻿# Automatizador-de-canciones - Nginx + API + Worker + Redis
+﻿# Plataforma Asíncrona de Automatización con API, Worker y Redis
 
-Configuracion de backend asincrono para automatizacion de playlists con cola de tareas.
+Sistema orientado a colas para procesamiento en segundo plano, con Nginx como capa de entrada y Redis como broker.
 
-## Arquitectura
+## Descripción
 
-- `songs-nginx`: gateway publico.
-- `songs-api`: endpoint para encolar canciones.
-- `songs-worker`: consumidor de cola.
-- `redis`: broker de mensajes.
+Este entorno simula una plataforma de automatización de tareas musicales donde las solicitudes se encolan y un worker las procesa de manera desacoplada.
 
-## Levantar
+## ¿Qué hace este proyecto?
+
+- Expone API para recibir tareas (`/api/play`).
+- Encola trabajos en Redis.
+- Ejecuta un worker independiente para consumo de cola.
+- Publica todo detrás de Nginx como gateway.
+
+## Características Principales
+
+| Característica | Descripción |
+|---|---|
+| Arquitectura asíncrona | API rápida sin bloquear procesos largos |
+| Cola persistente en memoria | Redis como broker central |
+| Worker dedicado | Procesamiento desacoplado |
+| Edge único | Nginx expone el sistema completo |
+
+## Stack Tecnológico
+
+- Python Flask
+- Redis
+- Nginx
+- Docker Compose
+
+## Instalación y Uso
+
+### Levantar entorno
 
 ```bash
 docker compose up -d --build
 ```
 
-API base: `http://localhost:8083/api/health`
+### Probar
 
-## Variables
+- Health: `http://localhost:8083/api/health`
+- Cola de trabajo (POST): `http://localhost:8083/api/play`
+
+## Variables de Entorno
 
 - `NGINX_PORT`: puerto externo del gateway.
 
-## Valor para perfil
+## Estructura del Proyecto
 
-- Patron real de procesamiento asincrono.
-- Separacion de responsabilidades API/Worker.
+```text
+.
+├── Dockerfile
+├── docker-compose.yml
+├── .env
+├── app/
+│   ├── api.py
+│   ├── worker.py
+│   └── requirements.txt
+└── nginx/
+    └── default.conf
+```
+
+## Casos de Uso
+
+- Procesamiento de jobs en background.
+- Automatizaciones que requieren cola de tareas.
+- Integraciones por eventos con baja latencia de respuesta.
 
 ---
 
