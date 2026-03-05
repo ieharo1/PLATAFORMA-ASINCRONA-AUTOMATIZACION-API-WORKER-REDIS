@@ -1,0 +1,33 @@
+﻿services:
+  songs-api:
+    build: .
+    container_name: songs-api
+    restart: unless-stopped
+    environment:
+      REDIS_HOST: redis
+
+  songs-worker:
+    build: .
+    container_name: songs-worker
+    restart: unless-stopped
+    command: ["python", "worker.py"]
+    environment:
+      REDIS_HOST: redis
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: songs-redis
+    restart: unless-stopped
+
+  songs-nginx:
+    image: nginx:1.27-alpine
+    container_name: songs-nginx
+    restart: unless-stopped
+    depends_on:
+      - songs-api
+    ports:
+      - "${NGINX_PORT}:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro

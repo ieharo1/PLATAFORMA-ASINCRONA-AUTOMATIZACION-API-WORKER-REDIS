@@ -1,42 +1,44 @@
-# 🎵 Automatizador de Canciones
+﻿# Automatizador-de-canciones - Nginx + API + Worker + Redis
 
-Proyecto Python para automatizar la reproducción de canciones desarrollado por **Isaac Esteban Haro Torres**.
+Configuracion de backend asincrono para automatizacion de playlists con cola de tareas.
+
+## Arquitectura
+
+- `songs-nginx`: gateway publico.
+- `songs-api`: endpoint para encolar canciones.
+- `songs-worker`: consumidor de cola.
+- `redis`: broker de mensajes.
+
+## Levantar
+
+```bash
+docker compose up -d --build
+```
+
+API base: `http://localhost:8083/api/health`
+
+## Variables
+
+- `NGINX_PORT`: puerto externo del gateway.
+
+## Valor para perfil
+
+- Patron real de procesamiento asincrono.
+- Separacion de responsabilidades API/Worker.
 
 ---
 
-## 📝 Descripción
-
-Bot Python que automatiza la reproducción y gestión de canciones en plataformas de streaming.
-
----
-
-## ✨ Características
-
-- Reproducción automática de listas
-- Gestión de playlists
-- Control por voz/comandos
-
----
-
-## 🛠️ Stack Tecnológico
-
-- Python
-- APIs de streaming
-- Selenium
-
----
-
-## 👨‍💻 Desarrollado por Isaac Esteban Haro Torres
+## ‍ Desarrollado por Isaac Esteban Haro Torres
 
 **Ingeniero en Sistemas · Full Stack · Automatización · Data**
 
-- 📧 Email: zackharo1@gmail.com
-- 📱 WhatsApp: 098805517
-- 💻 GitHub: https://github.com/ieharo1
-- 🌐 Portafolio: https://ieharo1.github.io/portafolio-isaac.haro/
+-  Email: zackharo1@gmail.com
+-  WhatsApp: 098805517
+-  GitHub: https://github.com/ieharo1
+-  Portafolio: https://ieharo1.github.io/portafolio-isaac.haro/
 
 ---
 
-## 📄 Licencia
+##  Licencia
 
 © 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.
